@@ -1,3 +1,4 @@
+using EFCoreExample.EntityConfigs;
 using EFCoreExample.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,5 +11,10 @@ public class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         options.UseSqlServer("Server=Localhost;Database=CursoEFCore;Trusted_Connection=True;");
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfiguration<Cliente>(new ClienteEntityConfig());
     }
 }
