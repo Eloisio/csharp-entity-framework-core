@@ -7,6 +7,7 @@ namespace EFCoreExample.Contexts;
 public class AppDbContext : DbContext
 {
     public DbSet<Cliente> Clientes => Set<Cliente>();
+    public DbSet<Endereco> Enderecos => Set<Endereco>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
@@ -16,5 +17,6 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration<Cliente>(new ClienteEntityConfig());
+        builder.ApplyConfiguration<Endereco>(new EnderecoEntityConfig());
     }
 }
