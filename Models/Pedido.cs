@@ -8,4 +8,5 @@ public class Pedido
     public int ClienteId { get; set; }
 
     public Cliente Cliente { get; set; } = null!;
+    public ICollection<Produto> Produtos { get; set; } = new List<Produto>();
 }
