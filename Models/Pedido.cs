@@ -7,6 +7,6 @@ public class Pedido
     public DateTime Data { get; set; }
     public int ClienteId { get; set; }
 
-    public Cliente Cliente { get; set; } = null!;
-    public ICollection<Produto> Produtos { get; set; } = new List<Produto>();
+    public virtual Cliente Cliente { get; set; } = null!;
+    public virtual ICollection<Produto> Produtos { get; set; } = new List<Produto>();
 }

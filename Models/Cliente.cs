@@ -6,8 +6,8 @@ public class Cliente
     public string Nome { get; set; } = string.Empty;
     public string Cpf { get; set; } = string.Empty;
 
-    public Endereco Endereco { get; set; } = null!;
-    public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+    public virtual Endereco Endereco { get; set; } = null!;
+    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
 
     public override string ToString()
     {

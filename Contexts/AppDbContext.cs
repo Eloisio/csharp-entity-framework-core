@@ -13,7 +13,9 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlServer("Server=Localhost;Database=CursoEFCore;Trusted_Connection=True;");
+        options
+            .UseLazyLoadingProxies()
+            .UseSqlServer("Server=Localhost;Database=CursoEFCore;Trusted_Connection=True;");
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
