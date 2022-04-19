@@ -1,12 +1,15 @@
 ﻿using EFCoreExample.Contexts;
-using EFCoreExample.Models;
+using Microsoft.EntityFrameworkCore;
 
 var db = new AppDbContext();
 
-var produto = db.Produtos.First();
-var produto2 = db.Produtos.Find(3);
-var pedido = db.Pedidos.First();
+var cliente = db.Clientes
+    .Include(x => x.Endereco)
+    .Include(x => x.Pedidos)
+    .ThenInclude(x => x.Produtos)
+    .First();
 
-pedido.Produtos.Add(produto);
-pedido.Produtos.Add(produto2);
-db.SaveChanges();
+Console.WriteLine(cliente);
+Console.WriteLine(cliente.Endereco);
+Console.WriteLine(cliente.Pedidos.Count);
+Console.WriteLine(cliente.Pedidos.Where(x => x.Id == 1).FirstOrDefault().Produtos.Count);

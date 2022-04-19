@@ -9,4 +9,9 @@ public class Endereco
     public string Logradouro { get; set; } = string.Empty;
     public string Numero { get; set; } = string.Empty;
     public int ClienteId { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Estado} - {Cidade}, {Bairro}, {Logradouro} N {Numero}";
+    }
 }
