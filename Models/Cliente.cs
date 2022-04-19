@@ -7,6 +7,7 @@ public class Cliente
     public string Cpf { get; set; } = string.Empty;
 
     public Endereco Endereco { get; set; } = null!;
+    public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
 
     public override string ToString()
     {
